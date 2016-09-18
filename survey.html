@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Survey</title>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script language = javascript>
+window.onload = function(){
+   document.getElementById("submit5").onclick=function()
+   {
+    var result3 =queryString(location.search);
+    cal5(result3);
+}
+  document.getElementById("submit6").onclick=function()
+   {
+      var result3 =queryString(location.search);
+    cal5(result3);
+}
+}
+
+
+
+</script>
+<link rel="stylesheet" href= "style.css">
+</head>
+<body>
+    <section class ="scope">
+    <div class="heading"> 
+        <header>Survey</br><progress value="100" max="100"></progress></header>
+    </div>
+
+    <div> <br><br>
+
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;How did you like the center? <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comments:<br> 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea id="comment" form ="form5"cols=100 rows=5 name="textBox1" style= "overflow-y:scroll"></textarea> <br><br>
+  	</div><br>
+    
+   <form id ="form5" action="summary.html" method = "get" name="form5">
+   
+    <div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select Text Area Location: <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;City:
+    &nbsp;&nbsp;
+    <input list="city" name="scity" id="examcity"/>
+        <datalist id="city">
+          <option value="San Jose"/>
+          <option value="San Francisco"/>
+          <option value="Mountain View"/>
+          <option value="Palo Alto"/>
+          <option value="Fremont"/>
+      </datalist>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Room Number#:
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <input list="room" type="text" id="examroom" />
+    <datalist id="room">
+      <select>
+          <option>337</option>
+          <option>210</option>
+          <option>110</option>
+          <option>410</option>
+          <option>337</option>
+      </select>
+    </datalist>
+    </div>
+<br>
+
+   <div align ="center">
+    	
+    	<input type="submit" class="button" id="submit5" onclick="check(this.form)" value="Submit & Get Score"/>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" id="submit6" class="button" onclick="skipsurvey(this.form)" value="Skip & Get Score"/>
+    
+    </div>
+          <input type="hidden" name ="attempt2" id="a2222" value ="">
+          <input type="hidden" name ="correct2" id="c2222" value ="">
+          <input type="hidden" name ="score2" id="score2222" value ="">
+          <input type="hidden" name ="attempt3" id="a333" value ="">
+          <input type="hidden" name ="correct3" id="c333" value ="">
+          <input type="hidden" name ="score3" id="score333" value ="">
+          <input type="hidden" name ="attempt4" id="a44" value ="">
+          <input type="hidden" name ="correct4" id="c44" value ="">
+          <input type="hidden" name ="score4" id="score44" value ="">
+          
+
+ </form>
+    <br>
+        <footer><font color=#800000;>HTML5 MARK-DATALIST SCORM-SCOs Assignment by Archana Taparia</font></footer> 
+  
+  <script type="text/javascript">
+
+      function check(form){
+        var comment = document.getElementById("comment");
+       var examroom = document.getElementById("examroom");        
+        var examcity = document.getElementById("examcity");
+                if(comment.value != "" && examcity.value != "" && examroom.value != "") {
+                    window.open('summary.html', '_self', false);
+                }
+                else {
+                    alert("Please Submit the Survey to get the Score!"); 
+                    window.open('survey.html', '_self', false);
+                }
+      }
+  </script>
+
+ 
+    </section>
+
+</body>
+</html>
+    

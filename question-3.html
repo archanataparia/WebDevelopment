@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Question-3</title>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script language = javascript>
+window.onload = function(){
+   document.getElementById("submit3").onclick=function()
+   {
+    var result1 =queryString(location.search);
+    cal3(result1);
+}
+}
+</script>
+
+<link rel="stylesheet" href= "style.css">
+</head>
+<body>
+    <section class ="scope">
+    <div class="heading"> 
+        <header>Question 3</br><progress value="60" max="100"></progress></header>
+    </div>
+   <form action="question4.html" method ="get" id="form3" name="form3" onsubmit = "cal3()">
+    <div class="graphic">
+
+        <p id="p1">"</br>Twitter wants more cash. The company announced two <span id="mark1" class ="yellowmark">__</span>million debt offerings in a filing today, each with a potential $100 increase provided that the sales are oversubscribed.</p>
+        <p id="p2">Assuming full tip, including the $100 milion boosters,<mark><span id="mark2">__</span></mark> will raise up to $1.5 bilion with the two offerings.</br>"</p>
+
+    </div>
+	<div class="text">
+	   
+				<p>
+					 &nbsp;&nbsp;As per the latest twitter news, complete the article &nbsp;snippet given by selecting appropriate choices for the &nbsp;blank:<br>
+	  		 </br> </br><input type=radio onclick="op1(this.form)" name="input3" value="1" id="9" data-three="1">$650, Twitter</br>
+	  		 <input type=radio onclick="op2(this.form)" name="input3" value="2" id="10" data-three="0">$550, Google</br>
+	  		 <input type=radio onclick="op3(this.form)" name="input3" value="3" id="11" data-three="0">$650, Facebook</br>
+	  		 </p>
+	  	
+	  </br></br>	
+            <input type="hidden" name ="attempt2" id="a22" value ="">
+          <input type="hidden" name ="correct2" id="c22" value ="">
+          <input type="hidden" name ="score2" id="score22" value ="">
+            <input type="hidden" name ="attempt3" id="a3" value ="">
+          <input type="hidden" name ="correct3" id="c3" value ="">
+          <input type="hidden" name ="score3" id="score3" value ="">
+        <div align ="center">
+        <input type="submit" class="button" id="submit3"value="Submit & Next Question"/> 
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="button" onclick="reset3(this.form)" value="Cancel & Clear Selection"/>
+
+        </div>	
+    </form>
+        <footer><font color=#800000;>HTML5 MARK-DATALIST SCORM-SCOs Assignment by Archana Taparia</font></footer> 
+    </div>
+    
+      
+    </section>
+
+</body>
+</html>
+    

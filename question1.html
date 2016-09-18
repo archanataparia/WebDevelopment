@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Question-1</title>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script language = javascript>
+window.onload = function(){
+    document.getElementById("submit").onclick=function(){
+cal1();
+}
+}
+</script>
+<link rel="stylesheet" href= "style.css">
+</head>
+<body>
+    <section class ="scope">
+    <div class="heading"> 
+        <header>Question 1</br><progress value="20" max="100"></progress></header>
+    </div>
+ 
+	<div class="graphic">
+  	    <svg height="400" width="400"  viewPort="0 0 110 110" version="1.1" xmlns="http://www.w3.org/2000/svg">
+           <defs>
+                <marker id="Chart" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+           	    <path d="M 0 0 L 10 5 L 0 10 z" />
+	    	    </marker>
+            </defs> 
+         
+              <g stroke = black>
+    			<line x1="100" x2="100" y1="350" y2="100" stroke-width="3" marker-end="url(#Chart)"  />
+    			<line x1="100" x2="350" y1="350" y2="350" stroke-width="3" marker-end="url(#Chart)" />
+    			<line x1="100" x2="350" y1="350" y2="100" stroke-width="3"  />		
+ 			 </g>
+ 			 <g fill = red>
+ 			    <circle cx="200" cy="250" r="4"/>
+ 			    <circle cx="300" cy="150" r="4"/>
+            </g>
+            <g fill = black >		
+ 			    <text x="210" y="260">(x1,y1)</text>
+ 			    <text x="310" y="160">(x2,y2)</text>
+            </g>
+        </svg>
+	</div>
+	
+    <div class="text">
+		<form id ="form1" action="question-2.html" method ="get" name = "form1" onsubmit="cal1()">
+		<p>					
+		    &nbsp;&nbsp;Given points (x1,y1) and (x2,y2) select the formula to &nbsp;&nbspfind the equation of the given line:<br>
+	  		 </br> </br><input type="radio" name="input1" value="1" id="1" data-one="0">
+	  		<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'>
+			   <mrow> <mi>y</mi>
+				<mo>=</mo>
+				<mrow>
+					<mi>m</mi>
+					<mi>x</mi>						
+				</mrow>
+				<mo>+</mo>
+				<mi>b</mi>
+</mrow>			</math></br>
+	  		<input type="radio" name="input1" value="2" id="2" data-one="1">
+      		<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'>
+			<mrow>							
+			    <mi>y</mi>
+				<mo>&minus;</mo>
+				<msub>
+          <mi>y</mi>
+          <mn>1</mn>
+        </msub>
+			</mrow>
+			<mo>=</mo>
+			<mrow>
+				<mi>m</mi>
+				<mrow>
+				    <mo>(</mo>
+					<mi>x</mi>
+					<mo>&minus;</mo>							
+					<msub>
+                    <mi>x</mi>
+                    <mn>1</mn>
+                     </msub>
+					<mo>)</mo>
+				</mrow>
+			</mrow>
+			</math></br>
+      		<input type="radio" name="input1" value="3" id="3" data-one="0">
+	  		<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'>
+			<mrow>							
+      			<mo>(</mo>
+        		<mrow>
+          		    <mi>x</mi>
+          		    <mo>&minus;</mo>
+    				<mi>h</mi>    						
+      				<mo>)</mo> 				
+   					<mn>&sup2</mn>
+  					<mo>&plus;</mo>  							
+  					<mo>(</mo>
+        			<mi>y</mi>
+          			<mo>&minus;</mo>
+          			<mi>k</mi>
+                    <mo>)</mo>
+    				<mn>&sup2</mn>
+  				</mrow>
+  				<mrow>
+					<mo>=</mo>
+    				<mi>r</mi>
+    				<mn>&sup2</mn>
+  				</mrow>
+				</math></br>
+	  			<input type="radio" name="input1" value="4" id="4" data-one="0">
+      			<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'>
+						<mrow>
+							<mi>y</mi>
+							<mo>&minus;</mo>
+							<msub>
+                            <mi>y</mi>
+                             <mn>2</mn>
+                            </msub>
+						</mrow>
+						<mo>=</mo>
+						<mrow>
+							<mrow>
+							<mfrac>
+							<mrow>
+								<msub>
+                                <mi>y</mi>
+                                 <mn>2</mn>
+                                </msub>
+								<mo>&minus;</mo>				
+								<msub>
+                                 <mi>y</mi>
+                                 <mn>1</mn>
+                                </msub>
+							</mrow>
+							<mrow>
+								<msub>
+                                <mi>x</mi>
+                                <mn>2</mn>
+                                 </msub>
+								<mo>&minus;</mo>
+								<msub>
+                                <mi>x</mi>
+                                <mn>1</mn>
+                                </msub>
+							</mrow>			
+							</mfrac>
+							</mrow>
+							<mrow>
+								<mo>(</mo>
+								<mi>x</mi>
+								<mo>&minus;</mo>
+								<msub>
+                                <mi>x</mi>
+                                <mn>2</mn>
+                                </msub>
+								<mo>)</mo>
+							</mrow>
+			    		</mrow>
+					</math>  
+    			</p>
+          <!--<p id ="demo"></p>-->
+    			
+    			<br>
+          <input type="hidden" name ="attempt1" id="a1" value ="">
+          <input type="hidden" name ="correct1" id="c1" value ="">
+          <input type="hidden" name ="score1" id="score1" value ="">
+         
+    			
+        <div align ="center">
+        
+       
+        <input type="submit" class="button"  id="submit" value="Submit & Next Question"/> 
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="button" onclick="reset1(this.form)" value="Cancel & Clear Selection"/></div>
+</form>
+       <footer><font color=#800000;>HTML5 MARK-DATALIST SCORM-SCOs Assignment by Archana Taparia</font></footer> </div>
+        
+    </section>
+
+</body>
+</html>

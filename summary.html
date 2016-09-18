@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Summary</title>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script language = javascript>
+window.onload = function(){
+    //alert (location.search);
+    var fresult =queryString(location.search);
+    //alert(fresult);
+    final_result(fresult);
+}
+
+</script>
+<link rel="stylesheet" href= "style.css">
+</head>
+<body>
+<section class ="scope">
+    <div class="heading"> 
+        <header>Score Card</header>
+    </div>
+    <div class="examresult">
+		<details>
+		<summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Quantative Section</summary>
+  				&nbsp;&nbsp;&nbsp;&nbsp;Number of Questions Answered: <span id="result1" value =""></span><br>
+  				&nbsp;&nbsp;&nbsp;&nbsp;Number of Correct Answers: <span id="result2"></span><br>
+  				&nbsp;&nbsp;&nbsp;&nbsp;Score: <span id="result3"></span>
+  		</details>
+		<details>
+		<summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reading Section</summary>
+  				&nbsp;&nbsp;&nbsp;&nbsp;Number of Questions Answered: <span id="result4"></span><br>
+  				&nbsp;&nbsp;&nbsp;&nbsp;Number of Correct Answers: <span id="result5"></span><br>
+  				&nbsp;&nbsp;&nbsp;&nbsp;Score:<span id="result6"></span>
+  		</details>
+		<details>
+		<summary>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Audio/Video Section</summary>
+  				&nbsp;&nbsp;&nbsp;&nbsp;Number of Questions Answered: <span id="result7"></span><br>
+  				&nbsp;&nbsp;&nbsp;&nbsp;Number of Correct Answers: <span id="result8"></span><br>
+  				&nbsp;&nbsp;&nbsp;&nbsp;Score: <span id="result9"></span>
+  		</details>
+	</div>
+	
+
+    <div align ="center">
+    <font size=+3>Thank You!!</font><br>
+    <input type="button" class="button" onclick="closewindow(this.form)" value="Finish"/>
+    </div>
+    <footer><font color=#800000;>HTML5 MARK-DATALIST SCORM-SCOs Assignment by Archana Taparia</font></footer> 
+</section>
+</body>
+</html>

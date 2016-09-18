@@ -1,0 +1,94 @@
+body{
+	font-family: 'Georgia', serif;
+	font-size: 18px;
+	color: rgb(56,56,56);
+	line-height: 30px;
+	line-height: 1.5;
+	background:rgb(255,255,255);
+	}
+.heading {
+text-align: center;
+background:rgb(200, 200, 200);
+font-size: 25px;
+}
+.user-login{
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    width:25em;
+    height:11em;
+    margin-top: -9em;     
+	margin-left: -15em;
+	margin-right: -15em;
+    border-radius: 15px;
+    border: 1px solid rgb(48, 48, 48);
+    background: rgb(255,255,255);
+    padding:0;
+	overflow:auto;
+	position:fixed;
+}
+.button{
+    font-size: 15px;
+    background:rgb(255,255,255);
+    padding: 6px 12px;
+    border-radius: 50px;
+    border: 1px solid rgb(48, 48, 48);
+    text-align: center;
+    cursor: pointer;
+}
+.scope{
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    width:50em;
+    height:30em;
+    margin-top: -15em;     
+	margin-left: -25em;
+	margin-right: -15em;
+    border-radius: 15px;
+    border: 1px solid rgb(48, 48, 48);
+    background: rgb(255,255,255);
+    padding:0;
+	overflow:auto;
+	position:fixed;
+}
+
+.graphic{
+    width:50%;
+    float:right;	 	 
+}
+
+.text {
+    width:50%;
+    float:left;
+    margin-right: -2em;	 	 
+}
+input[type="radio"]{
+  margin: 0 10px 0 10px;
+ 
+}
+.yellowmark{
+    background-color: #FFFF00;
+
+}
+math {
+margin-top: -1em;
+margin-left: -2em;
+}
+footer{
+text-align: right;
+position:absolute;
+font-size: 9px;
+font-style: oblique;
+font-weight: 600;
+bottom:0;
+}
+.examresult {
+    border: 2px solid rgb(48, 48, 48);
+     width:42em;
+    height:18em;
+    padding: 25px;
+    margin-top: 1em;     
+	margin-left: 2.4em;
+	margin-right: 2em;
+}

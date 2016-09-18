@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>User Log-in</title>
+<link rel="stylesheet" href= "style.css">
+</head>
+<body>
+    <section class = "user-login">
+        
+        <div class="heading"> 
+        <header>User Login</header>
+        </div>
+        </br>
+       
+       <form action="">
+		<center>
+		
+		<div>
+			<label> Username: </label>&nbsp;&nbsp;&nbsp;&nbsp
+			<input type="text" placeholder="Please Enter Username" id="username" required=""/>
+		</div>
+		<div>
+			<label> Password: </label>&nbsp;&nbsp;&nbsp;&nbsp
+			<input type="password" placeholder="Please Enter Password" id="password" required=""/>
+		</div></br>	
+		<div>
+		    <font color=#144ab8 size=3><a href="#">Create Account/Forgot?</a></font>&nbsp;&nbsp;&nbsp;&nbsp
+		    <input type="button" class="button" onclick="check(this.form)" value="Login"/>
+		</div>
+			
+		</center>
+		</form>
+    </section>
+   
+   
+    
+     <script language ="javascript">
+			var user = document.getElementById("username");
+			var password = document.getElementById("password");
+            function check(form) { 
+            
+                if(user.value == "archana" && password.value == "1234") {
+                    window.open('question1.html', '_self', false);
+                }
+                else {
+                    alert("Wrong Password or Username!"); 
+                }
+            }
+        </script> 
+        
+
+</body>
+</html>

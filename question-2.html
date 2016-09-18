@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Question-2</title>
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="main.js"></script>
+<script language = javascript>
+window.onload = function(){
+   document.getElementById("submit2").onclick=function()
+   {
+ 	var result =queryString(location.search);
+ 	cal2(result);
+}
+}
+
+</script>
+<link rel="stylesheet" href= "style.css">
+</head>
+<body>
+    <section class ="scope">
+    <div class="heading"> 
+        <header>Question 2</br><progress value="40" max="100"></progress></header>
+    </div>
+    <div class = "text">
+				
+				<form id ="form2" action="question-3.html" method ="get" name = "form2">
+				<p>
+					&nbsp;&nbsp;Select the cosine theorem formula: <br>
+	  				<input type="radio" name="input2" value="1" id="5" data-two="1">
+	  					<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'>
+						<mrow>
+							<mi>cos</mi>
+							<mrow>
+								<mo>(</mo>
+								<mi>&alpha;</mi>
+								<mi>&plusmn;</mi>
+								<mi>&beta;</mi>
+								<mo>)</mo>
+							</mrow>
+						</mrow>
+						<mo>=</mo>
+						<mrow>
+							<mi>cos</mi>
+							<mi>&alpha;</mi>
+							<mi>cos</mi>
+							<mi>&beta;</mi>
+						</mrow>
+						<mo>&mnplus;</mo>
+						<mrow>
+							<mi>sin</mi>
+							<mi>&alpha;</mi>
+							<mi>sin</mi>
+							<mi>&beta;</mi>
+						</mrow>
+					</math></br>
+      				<input type="radio" name="input2" value="2" id="6" data-two="0" align ="center">
+      					<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'>
+						<mrow>
+							<mrow>
+								<mi>sin</mi>
+								<mi>&alpha;</mi>
+							</mrow>
+							<mo>+</mo>
+							<mrow>
+							<mi>sin</mi>
+							<mi>&beta;</mi>
+							</mrow>
+						</mrow>
+						<mo>=</mo>
+						<mrow>
+							<mn>2</mn>
+							<mi>sin</mi>
+							<mrow>
+								<mo>(</mo>
+								<mfrac>
+									<mrow>
+										<mi>&alpha;</mi>
+										<mo>+</mo>
+										<mi>&beta;</mi>
+									</mrow>
+									<mi>2</mi>
+								</mfrac>
+								<mo>)</mo>
+							</mrow>
+							<mi>cos</mi>
+							<mrow>
+								<mo>(</mo>
+								<mfrac>
+								<mrow>
+								<mi>&alpha;</mi>
+								<mo>&minus;</mo>
+								<mi>&beta;</mi>
+								</mrow>
+								<mi>2</mi>
+								</mfrac>
+								<mo>)</mo>
+							</mrow>
+						</mrow>
+						</math></br>
+						<input type="radio" name="input2" value="3" id="7" data-two="0">
+	  					<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'>
+						<mrow>
+							<mi>sin</mi>
+							<mrow>
+								<mo>(</mo>
+								<mi>&alpha;</mi>
+								<mi>&plusmn;</mi>
+								<mi>&beta;</mi>
+								<mo>)</mo>
+							</mrow>
+						</mrow>
+						<mo>=</mo>
+						<mrow>
+							<mi>sin</mi>
+							<mi>&alpha;</mi>
+							<mi>cos</mi>
+							<mi>&beta;</mi>
+						</mrow>
+						<mo>&plusmn;</mo>
+						<mrow>
+							<mi>cos</mi>
+							<mi>&alpha;</mi>
+							<mi>sin</mi>
+							<mi>&beta;</mi>
+						</mrow>
+					</math></br>
+	  				<input type="radio" name="input2" value="4" id="8" data-two="0">
+      					<math xmlns="http://www.w3.org/1998/Math/MathML" display='block'>
+						<mrow>
+							<mrow>
+								<mi>sin</mi>
+								<mi>&alpha;</mi>
+							</mrow>
+							<mo>&minus;</mo>
+							<mrow>
+							<mi>sin</mi>
+							<mi>&beta;</mi>
+							</mrow>
+						</mrow>
+						<mo>=</mo>
+						<mrow>
+							<mn>2</mn>
+							<mi>cos</mi>
+							<mrow>
+								<mo>(</mo>
+								<mfrac>
+									<mrow>
+										<mi>&alpha;</mi>
+										<mo>+</mo>
+										<mi>&beta;</mi>
+									</mrow>
+									<mi>2</mi>
+								</mfrac>
+								<mo>)</mo>
+							</mrow>
+							<mi>sin</mi>
+							<mrow>
+								<mo>(</mo>
+								<mfrac>
+								<mrow>
+								<mi>&alpha;</mi>
+								<mo>&minus;</mo>
+								<mi>&beta;</mi>
+								</mrow>
+								<mi>2</mi>
+								</mfrac>
+								<mo>)</mo>
+							</mrow>
+						</mrow>
+						</math>  
+    			</p>
+
+    		<input type="hidden" name ="attempt2" id="a2" value ="">
+          <input type="hidden" name ="correct2" id="c2" value ="">
+          <input type="hidden" name ="score2" id="score2" value ="">
+    			
+    			
+    		
+
+   </br>
+				
+        <div align ="center">
+       
+        <input type="submit" class="button" id="submit2" value="Submit & Next Question"/> 
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" class="button" onclick="reset2(this.form)" value="Cancel & Clear Selection"/>
+
+        </div>
+        </form>
+        	
+	<footer><font color=#800000;>HTML5 MARK-DATALIST SCORM-SCOs Assignment by Archana Taparia</font></footer> 
+	</div>
+    </section>
+
+</body>
+</html>
