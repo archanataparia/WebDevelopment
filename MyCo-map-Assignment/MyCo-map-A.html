@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Maps</title>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script>  
+window.onload = function(){
+var map = new google.maps.Map(document.getElementById('map-canvas'), {
+                                      center: {"lat":37.542571,"lng":-121.993037},
+                                      scrollwheel: false,
+                                      zoom: 9
+                                      });
+var httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = handleResponse;
+        httpRequest.open("GET", "http://localhost:8088/MyCo-map-A.html", true);
+        httpRequest.send();
+      function handleResponse() {
+          if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+          var result= JSON.parse(httpRequest.responseText);
+          for(var i=0;i<result.length;i++){
+          var obj = result[i];
+          loadMap(map,obj)
+    }
+      }
+    }
+}
+   
+    function flagMark(flagcolor) {
+    return {
+        path: 'M 0,0 -1,-2 V -43 H 1 V -2 z M 1,-40 H 30 V -20 H 1 z',
+        fillColor: flagcolor,
+        fillOpacity: 1,
+        fillOpacity: 0.8,
+        strokeColor: '#000',
+        strokeWeight: 1,
+        scale: 1,
+   };
+}
+    
+function loadMap(map,prop) {   
+        var color = "";
+        var mapCordinate = {lat: prop.latitude, lng: prop.longitude};
+        if (prop.type == "RetailLocation")
+            color = "green";
+        else if (prop.type == "Distribution Facility")
+            color = "red";
+        else if (prop.type == "HeadQuarters")
+            color = "white";
+        else
+            color = "blue";
+        var marker = new google.maps.Marker({
+                                              map: map,
+                                              position: mapCordinate,
+                                              icon: flagMark(color),
+                                              animation:google.maps.Animation.DROP,                         
+                                              title: prop.type
+                                                });
+    }
+</script>
+</head>
+<body>
+<p id="test">
+</p>
+
+<div class="map-body" id="map-loc-trace">
+    <div id="map-canvas" style="height: 600px;" ></div>
+</div>
+
+</body>
+</html>
