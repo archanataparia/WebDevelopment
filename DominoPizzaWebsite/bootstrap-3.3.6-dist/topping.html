@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Pizza Application</title>
+ <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+ <link href="css/styles.css" rel="stylesheet">
+ <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  $('[data-toggle="tooltip"]').tooltip(); 
+  $("div[id='page2']").hide();
+  $("div[id='navbar2']").hide();
+  $("div[id='btn2']").hide();
+
+  //submit(this.form);
+  $("#submit3").click(function(){
+    $("#page1").hide();
+    $("#main_navbar").hide();
+    $("#btn1").hide();
+   
+    $("#page2").show();
+    $("#navbar2").show();
+    $("#btn2").show();
+
+    submit();
+  });
+
+});
+google.charts.load("current", {packages:["corechart","sankey"]});
+//google.load('visualization', '1', {packages: ['corechart']});
+function submit()
+{
+
+  var data = [['Pizza','Topping']];
+  var crust= sessionStorage.getItem("pizzatype");
+  var temp =[];
+  var temp1=[];
+   var temp2=[];
+  temp.push(''+ crust);
+  temp.push(10);
+  data.push(temp);
+  var cheese = sessionStorage.getItem("checkone");
+  var cheeseratio = sessionStorage.getItem("cheeselist");
+  if((cheeseratio=='light')||(cheeseratio=='normal'))
+  { 
+    temp1.push(''+ cheese + '-'+ cheeseratio);
+    temp1.push(3);
+    data.push(temp1);
+  }
+  if((cheeseratio=='extra')||(cheeseratio=='double'))
+  {
+    temp1.push(''+ cheese + '-'+ cheeseratio);
+    temp1.push(6);
+    data.push(temp1);
+  }
+  if (cheeseratio=='triple')
+  {
+    temp1.push(''+ cheese + '-'+ cheeseratio);
+    temp1.push(8);
+    data.push(temp1);
+  }
+
+  var sauce = sessionStorage.getItem("rsauce");
+  var sauceratio = sessionStorage.getItem("saucelist");
+  if((sauceratio=='light')||(sauceratio=='normal'))
+  { 
+    temp2.push(''+ sauce + '-'+ sauceratio);
+    temp2.push(5);
+    data.push(temp2);
+  }
+  if(sauceratio=='extra')
+  { 
+    temp2.push(''+ sauce + '-'+ sauceratio);
+    temp2.push(7);
+    data.push(temp2);
+  }
+  $('#meat input:checked').each(function() {
+      var selected = [];
+      selected.push(''+ $(this).attr('value'));
+      selected.push(5);
+      data.push(selected);
+  });
+  $('#non-meat1 input:checked').each(function() {
+      var selected = [];
+      selected.push(''+ $(this).attr('value'));
+      selected.push(5);
+      data.push(selected);
+  });
+  $('#non-meat2 input:checked').each(function() {
+     var selected = [];
+      selected.push(''+ $(this).attr('value'));
+      selected.push(5);
+      data.push(selected);
+  });  
+  google.charts.setOnLoadCallback(function() {      
+  var data1 = google.visualization.arrayToDataTable(data);
+  var options = {
+    title: 'Ingredients of Your Pizza!!!'
+    }; 
+ var chart = new google.visualization.PieChart(document.getElementById('chart_pie'));
+  chart.draw(data1, options);
+});
+
+//google.charts.load("current", {packages:["corechart","sankey"]});
+  google.charts.setOnLoadCallback(drawChart);
+   function drawChart() {
+     var data = new google.visualization.DataTable();
+    data.addColumn('string', 'From');
+    data.addColumn('string', 'To');
+    data.addColumn('number', 'Weight');
+    data.addRows([
+       [ 'Handmade', 'Medium', 3 ],
+       [ 'Handtossed', 'Small', 1 ],
+       [ 'Handtossed', 'Medium', 3 ],
+       [ 'Handtossed', 'X-Large', 5 ],
+       [ 'Handtossed', 'Large', 4 ],
+       [ 'Thincrust', 'Small', 1 ],
+       [ 'Thincrust', 'Medium', 3 ],
+       [ 'Thincrust', 'Large', 4 ],
+       [ 'Brooklynstyle', 'Large', 4 ],
+       [ 'Brooklynstyle', 'X-Large', 5 ],
+       [ 'Glutenfree', 'Small', 1 ],
+       
+      [ 'Small', 'Cheese', 3 ],
+      [ 'Small', 'Sauce', 1 ],
+      [ 'Medium', 'Cheese', 3 ],
+      [ 'Medium', 'Sauce', 1 ],
+      [ 'Large', 'Cheese', 3 ],
+      [ 'Large', 'Sauce', 1 ],
+      [ 'X-Large', 'Cheese', 3 ],
+      [ 'X-Large', 'Sauce', 1 ],
+      
+      [ 'Cheese', 'Meat', 1 ],
+      [ 'Cheese', 'Non-Meat', 1 ],
+      [ 'Sauce', 'Meat', 1 ],
+      [ 'Sauce', 'Non-Meat', 1 ],
+
+      [ 'Meat', 'Pepperoni', 1 ],
+      [ 'Meat', 'Italian Sausage', 1 ],
+      [ 'Meat', 'Sliced Italian Sausage', 1 ],
+      [ 'Meat', 'Beef', 1 ],
+      [ 'Meat', 'Philly Steak', 1 ],
+      [ 'Meat', 'Ham', 1 ],
+      [ 'Meat', 'Bacon', 1 ],
+      [ 'Meat', 'Salami', 1 ],
+      [ 'Meat', 'Chicken', 1 ],
+
+
+      [ 'Non-Meat', 'Green Pappers', 1 ],
+      [ 'Non-Meat', 'Jalapeno Pappers', 1 ],
+      [ 'Non-Meat', 'Mushrooms', 1 ],
+      [ 'Non-Meat', 'Pineapple', 1 ],
+      [ 'Non-Meat', 'Onions', 1 ],
+      [ 'Non-Meat', 'Garlic', 1 ],
+      [ 'Non-Meat', 'Roasted Red Peppers', 1 ],
+      [ 'Non-Meat', 'Spinach', 1 ],
+      [ 'Non-Meat', 'Diced Tomatoes', 1 ],
+      [ 'Non-Meat', 'Hot Sauce', 1 ], 
+      [ 'Non-Meat', 'Cheddar Cheese', 1 ],
+      [ 'Non-Meat', 'Feta Cheese', 1 ],
+      [ 'Non-Meat', 'Shredded Parmesan Asiago', 1 ],
+      [ 'Non-Meat', 'Banana Peppers', 1 ],
+      [ 'Non-Meat', 'Black Olives', 1 ],
+      [ 'Non-Meat', 'Shredded Provolone Cheese', 1 ], 
+    ]);
+
+    // Set chart options
+    var options = {
+      width: 600,
+      sankey: {
+        link: { color: { fill: '#aaccee' } },
+        node: { label: { fontName: 'Times-Roman',
+                         fontSize: 12,
+                         color: '#871b47',
+                         bold: true,
+                         italic: true,
+                         labelPadding: 20} } },
+    };
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.Sankey(document.getElementById('chart_sankey'));
+    chart.draw(data, options);
+   }
+
+
+
+}//end of submit function
+</script>
+ </head>
+ <body>
+ 	
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center">
+		<h1 >Build Your Own Pizza</h1>
+		</div>
+	</div>
+<!-- Navigation bar -->
+	<div id="main_navbar" >
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header" class="well">
+			<!-- Responsive navigation bar on mobile devices -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span>
+     			<span class="icon-bar"></span>
+        		<span class="icon-bar"></span><!-- Responsive button icon -->
+				</button>
+				<ul class="nav navbar-nav">
+          <li class="active">
+          <!-- Highlighted menu for current page -->
+            <a href="index.html" id="size&crust" data-toggle="tooltip" title ="CLICK here to select Size & Crust for your Pizza" data-placement="bottom">SIZE & CRUST</a>
+          </li>
+          <li>
+            <a href="cheese-sauce.html" id="cheese&sauce" data-toggle="tooltip" title ="CLICK here to select Cheese & Sauce for your Pizza" data-placement="bottom" >CHEESE & SAUCE</a>
+          </li>
+          <li>
+            <a href="topping.html" id="topping" data-toggle="tooltip" title ="CLICK here to select Toppings for your Pizza" data-placement="bottom">TOPPINGS</a>
+          </li>
+        </ul>
+			</div>
+		</nav>
+	</div><!-- End of Navigation bar -->
+
+  <!-- Navigation bar 2-->
+  <div id="navbar2">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+      <!-- Responsive navigation bar on mobile devices -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+            <span class="icon-bar"></span><!-- Responsive button icon -->
+        </button>
+        <ul class="nav navbar-nav">
+          <li class="current">
+          <!-- Highlighted menu for current page -->
+            <a href="index.html" id="dashboard">DASHBOARD</a>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+  </div><!-- End of Navigation bar -->
+
+
+	<!-- Panel-->
+
+	<div class ="row">
+	<div class="panel panel-default">
+  	<div class="panel-body">
+  		
+	<!--Page1-->
+    <div id="page1">
+      <div class ="row">
+      <div class="col-md-12 col-xs-3 col-sm-6"><h3>CHOOSE TOPPINGS</h3></div>
+    </div>
+	<div class="row">
+            <div id="meat">
+              <h4>CHOOSE MEATS</h4>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="meat" id="check3" value="pepperoni">Pepperoni</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="meat" id="check4" value="italian-sausage">Italian Sausage</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="meat" id="check5" value="slice-italian-sausage">Sliced Italian Sausage</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="meat" id="check6" value="beef">Beef</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="meat" id="check7" value="philly-steak">Philly Steak</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="meat" id="check8" value="ham">Ham</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="meat" id="check9" value="bacon">Bacon</label></div>
+        	</div>
+        	<div class="col-md-3 col-sm-6 col-xs-12">
+        		<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="meat" id="check10" value="salami">Salami</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="meat" id="check11" value="chicken">Premium Chicken</label></div></div>
+                
+        </div>    
+            
+        <!--<div id="non-meat" form-control-static>-->
+            <div class="col-md-3 col-sm-6 col-xs-12" id="non-meat1">
+              <h4>CHOOSE NON-MEATS</h4>
+     			<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="nonmeat"id="check12" value="cheddar">Cheddar Cheese</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="nonmeat" id="check13" value="feta">Feta Cheese</label></div>
+            	<div class="checkbox" style="color:black;"><label> <input type="checkbox" name="nonmeat" id="check14" value="parmesan">Shredded Parmesan Asiago</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="nonmeat" id="check15" value="provolone">Shredded Provolone Cheese</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="nonmeat" id="check16" value="Bananapepper">Banana Peppers</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="nonmeat" id="check17" value="olive">Black Olives</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="nonmeat" id="check18" value="garlic">Garlic</label></div>
+  			</div>
+  			<div class="col-md-3 col-sm-6 col-xs-12" id="non-meat2">
+        		<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="nonmeat" id="check19" value="greenpapper">Green Peppers</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="nonmeat" id="check20" value="jalapeno">Jalapeno Peppers</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="nonmeat" id="check21" value="mushrooms">Mushrooms</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="nonmeat" id="check22" value="pineapple">Pineapple</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="nonmeat" id="check23" value="onion">Onions</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="nonmeat" id="check24" value="redpapper">Roasted Red Peppers</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="nonmeat" id="check25" value="spinach">Spinach</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="nonmeat" id="check26" value="tomato">Diced Tomatoes</label></div>
+            	<div class="checkbox" style="color:black;" ><label> <input type="checkbox" name="nonmeat" id="check27" value="hotsauce">Hot Sauce</label></div>
+            </div>
+  </div>
+</div>
+
+<!--page2-->
+
+
+<div id="page2" style="display:none;">
+    <div class ="row">
+      <div class="col-md-12 col-xs-3 col-sm-3"><h3><center><u>PIE CHART<u></center></h3></div>
+    </div>
+   <div class="row">
+     <div id="chart_pie" style="width: 950px; height: 400px;">hello</div>
+    </div>
+    
+    <div class ="row">
+      <div class="col-md-12 col-xs-3 col-sm-3"><h3><center><u>SANKEY CHART<u></center></h3></div>
+    </div>
+    <div class="row">
+     <center><div id="chart_sankey" style="width: 800px; height: 510px;">hello</div></center>
+    </div>
+</div> 
+
+
+</div><!-- End of  Panel body -->
+</div><!-- End of  Panel class-->
+	<div class="row" id="btn1"><center>
+		<button type="submit" class="btn btn-success btn-lg" id="submit3" data-toggle="tooltip" title ="CLICK here to build your Pizza" data-placement="top">Build</button>
+	<button type="button" class="btn btn-warning btn-lg" onclick="reset(this.form)" data-toggle="tooltip" title ="CLICK here to reset or cancel" data-placement="top">Cancel</button></center>
+	</div>
+
+    <div class="row" id="btn2"><center><button type="submit" class="btn btn-primary btn-lg" id="home" onclick="home(this.form);"data-toggle="tooltip" title ="CLICK here to go to Home page" data-placement="top">HOME</button></center></div>
+
+
+
+</div><!-- End of  Panel row-->
+</div>	<!-- End of container class-->
+ </body>
+</html>

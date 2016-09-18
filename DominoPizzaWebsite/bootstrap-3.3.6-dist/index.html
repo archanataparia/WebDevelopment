@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ 	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Pizza Application</title>
+ <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+ <link href="css/styles.css" rel="stylesheet">
+ <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+  submit1(this.form);
+  $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+ </head>
+ <body>
+ 	<script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center">
+		<h1 >Build Your Own Pizza</h1>
+		</div>
+	</div>
+<!-- Navigation bar -->
+	<div id="main_navbar">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+			<!-- Responsive navigation bar on mobile devices -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span>
+     			<span class="icon-bar"></span>
+        		<span class="icon-bar"></span><!-- Responsive button icon -->
+				</button>
+				<ul class="nav navbar-nav">
+					<li class="active">
+					<!-- Highlighted menu for current page -->
+						<a href="index.html" id="size&crust" data-toggle="tooltip" title ="CLICK here to select Size & Crust for your Pizza" data-placement="bottom">SIZE & CRUST</a>
+					</li>
+					<li>
+						<a href="cheese-sauce.html" id="cheese&sauce" data-toggle="tooltip" title ="CLICK here to select Cheese & Sauce for your Pizza" data-placement="bottom" >CHEESE & SAUCE</a>
+					</li>
+					<li>
+						<a href="topping.html" id="topping" data-toggle="tooltip" title ="CLICK here to select Toppings for your Pizza" data-placement="bottom">TOPPINGS</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div><!-- End of Navigation bar -->
+	<!-- Panel-->
+	<form action="" role="form" name="pizza-type-form" id="form1">
+	<div class ="row">
+	<div class="panel panel-default">
+  	<div class="panel-body">
+  		<div class ="row">
+			<div class="col-xs-12 col-sm-6"><h3>CHOOSE SIZE & CRUST</h3></div>
+		</div>
+	
+	<div class="row">
+    
+        <div id="handtossed">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <h4>HAND TOSSED</h4>
+              <p style="color:black;">Garlic-seasoned crust with thin, buttary taste. </p>
+            <div class="radio" style="color:black;"><label><input type="radio" name="radiopizza" value="handtossed-small"id="radio1">Small(10")</label></div>
+            <div class="radio" style="color:black;"><label><input type="radio" name="radiopizza" value="handtossed-medium"id="radio2">Medium(12")</label></div>
+            <div class="radio" style="color:black;"><label><input type="radio" name="radiopizza" value="handtossed-large"id="radio3">Large (14")</label></div>
+            <div class="radio" style="color:black;"><label><input type="radio" name="radiopizza" value="handtossed-x-large"id="radio4">X-Large (16")</label></div>
+       		</div> 
+        </div>
+        <div id="handmade">
+           <div class="col-md-3 col-sm-6 col-xs-12">
+              <h4>HAND MADE PAN </h4>
+              <p style="color:black;">Two layers of cheese, toppings to the edge and a crust that bakes up golden and crispy with buttary taste.</p>
+            <div class="radio" style="color:black;"><label><input type="radio" name="radiopizza" value="handmade-medium"id="radio5">Medium(12")</label></div>
+          </div> 
+        </div>
+         <div id="thincrust">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <h4>CRUNCHY THIN CRUST</h4>
+              <p style="color:black;">Thin enough for the optimum crispy to crunchy ratio.</p>
+             <div class="radio" style="color:black;"><label><input type="radio" name="radiopizza" value="thincrust-medium"id="radio6">Medium(12")</label></div>
+            <div class="radio" style="color:black;"><label><input type="radio" name="radiopizza" value="thincrust-large"id="radio7">Large(14")</label></div></div>
+        </div>
+        <div id="brooklynstyle" form-control-static>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+              <h4>BROOKLYN STYLE</h4>
+              <p style="color:black;">Hand stretched to be big, thin and perfectly foldable.</p>
+            <div class="radio" style="color:black;"><label><input type="radio" name="radiopizza" value="brooklynstyle-large"id="radio8">Large(14")</label></div>
+            <div class="radio" style="color:black;"><label><input type="radio" name="radiopizza" value="brooklynstyle-x-large"id="radio9">X-Large (16")</label></div></div>
+        </div>
+        <div class="form-group" id="glutenfree" form-group-lg>
+        	<div class="col-md-12 col-sm-6 col-xs-12 text-left" >
+              <h4>GLUTEN-FREE CRUST</h4>
+              <p style="color:black;">Domino's pizza made with Gluten free crust.</p>
+            <div class="radio" style="color:black;"><label><input type="radio" name="radiopizza" value="glutenfree-small"id="radio10">Small(10")</label>
+            </div>
+          	</div>
+        </div>   
+    </div>
+
+  </div>
+</div>
+	</div><!-- End of  Panel-->
+	<div class="row"><center>
+		<button type="submit" class="btn btn-success btn-lg" id="submit1" data-toggle="tooltip" title ="CLICK here to save your choice" data-placement="top">SAVE</button>
+	<button type="button" class="btn btn-warning btn-lg" onclick="reset(this.form)" data-toggle="tooltip" title ="CLICK here to reset or cancel" data-placement="top">CANCEL</button></center>
+	</div>
+
+
+ </form>
+</div>	<!-- End of container class-->
+
+
+ </body>
+</html>
