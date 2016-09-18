@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Registration</title>
+<script type="text/javascript" src="JScript.js"></script>
+<script src="modernizr.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+window.onload = function(){
+   document.getElementById("register").onclick=function()
+   {
+    var check= window.navigator.onLine;
+
+        if(!check)
+        {
+            alert("offline");
+            if (Modernizr.localstorage) {
+                alert("localstorage available");
+                lStorage(this.form);
+            } 
+        }
+        else
+        {
+        alert("online"); 
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = handleResponse;
+        //var text='{"data":"hello"}';
+        //var obj= JSON.parse(text);
+        httpRequest.setRequestHeader("Content-Type", "application/json");
+        httpRequest.open("POST", form.action);
+        alert("online1"); 
+        httpRequest.send();
+        } 
+    }
+    function handleResponse() {
+    if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+    document.getElementById("main").innerHTML= httpRequest.responseText;
+    }
+    }
+}
+</script>
+<script>
+$(document).ready(function(){
+   $('#pwd').keydown(function(e) {
+
+     var strong = new RegExp("^(?=.{7,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+     var medium = new RegExp("^(?=.{6,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+     var ne = new RegExp("(?=.{5,}).*", "g");
+     var meter = document.getElementById('meter');
+
+     if (ne.test($(this).val())==false) {
+              meter.value = 10;
+             $('#pwd-strength').html('Please add more characters');
+     } else if (strong.test($(this).val())) {
+             meter.value = 100;
+             $('#pwd-strength').html('Strong');
+     } else if (medium.test($(this).val())) {
+             meter.value = 50;
+             $('#pwd-strength').html('Medium');
+     } else {
+             meter.value = 20;
+             $('#pwd-strength').html('Weak');
+     }
+     return true;
+     });
+});
+
+</script>
+<style>
+#target, #src > img {border: thin solid black; padding: 2px; margin:4px;}
+#target {height: 81px; width: 81px; text-align: center; display: table;}
+#target > p {display: table-cell; vertical-align: middle;}
+#target > img {margin: 1px;}
+img.dragged {background-color: lightgrey;}
+</style>
+
+<link rel="stylesheet" href= "style.css">
+</head>
+<body>
+<section class ="scope">
+    <div class="heading"> 
+        <header>Registration</br></header>
+    </div>
+    <div id ="main">
+    <form method="POST" action="http://localhost:8088/" >
+    <center>
+        <table>
+        <tr>
+            <td>First Name:</td>
+            <td><input type="text" name="firstname" id="fname" placeholder="Enter First Name" style="width:185px;" required/></td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td><input type="text" name="lastname" id="lname" placeholder="Enter Last Name" style="width:185px;" required/></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="email" name="email" id="email" style="width:185px;" placeholder="Enter your Email Address" required pattern="[a-z0-9._+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password" style="width:185px;" id="pwd" placeholder="Enter Password" required></td>
+             <td><img src="http://findicons.com/files/icons/1008/quiet/128/information.png" title="Password must contain upper case, lower case, digit and atleast one special character"alt="help" height="20" onclick="alert('Strong password must be minimum 8 characters long including upper case, lower case, digit and special characters')"  width="20"></td>
+        </tr>
+        <tr>
+            <td></td><td><span id="pwd-strength"></span><meter id="meter" min ="25" max="100" low = "25" high="75" optimum="100" value ="0"></meter></td>
+        </tr> 
+        
+        <tr>
+            <td>Confirm Password:</td>
+            <td><input type="password" name="confirmpassword" style="width:185px;" id="cpwd" onblur="verifypassword()" placeholder="Must be same as password" required></td>
+        </tr>
+        <tr>
+            <td>Security Question 1:</td>
+            <td><input list="securityquestion" type="text" name="question" style="width:185px;" id="squestion" required></td>
+            <datalist id="securityquestion">  
+         	<option value="Sum of 2 + 3 =">  
+         	<option value="Sum of 100 + 200 =">  
+         	<option value="23 x 100 ="> 
+         	<option value="Capital of India?">  
+         	<option value="Capital of USA?">
+            </datalist>  
+       
+            <td>Security Answer:</td><td><input type="text" name="answer" style="width:185px;" id="sanswer" placeholder="Enter your answer" required></td>
+        </tr>
+        <tr>
+            <td>Security Question 2:</td>
+            <td><input list="securityquestion2" type="text" name="question2" style="width:185px;" id="squestion2" required></td>
+            <datalist id="securityquestion2">  
+         	<option value="Sum of 2 + 3 =">  
+         	<option value="Sum of 100 + 200 =">  
+         	<option value="23 x 100 ="> 
+         	<option value="Capital of India?">  
+         	<option value="Capital of USA?">
+            </datalist>  
+        
+            <td>Security Answer:</td><td><input type="text" name="answer2" style="width:185px;" id="sanswer2" placeholder="Enter your answer" required></td>
+        </tr>    
+        <tr>
+            <td>Phone:</td><td><input type="phone" name="Mobile" style="width:185px;" title="required pattern XXX-XXX-XXXX"  placeholder="Enter Phone Number" id="phone" pattern="[0-9]{3}[ -]?[0-9]{3}[ -]?[0-9]{4}" required></td>
+        </tr>
+        <tr rowspan="2">
+            <td> Address:</td>
+            <td><input type="address" id="address" name="address" style="width:220px; height:40px;" placeholder="Enter your address" required</td>  
+            <td colspan=4><div id ="src">
+                <img draggable="true" id="sjsu" src="http://www.sjsujudo.org/wp-content/uploads/2014/02/SJSU-Logo.gif" alt="sjsu" height="70" width="100"/><img draggable="true" id="cisco" src="http://www.eweek.com/imagesvr_ce/7291/290x195cisco1.jpg" alt="cisco" height="70" width="100"/><img draggable="true" id="microsoft" src="http://wacharters.org/wp-content/uploads/2015/01/new-microsoft-logo-SIZED-SQUARE-300x297.jpg" alt="microsoft" height="70" width="100"/>
+            </div></td>     
+        </tr>
+        <tr>
+            <td>Areas you may be interested in, Please select one or more</td>
+            <td><textarea id= "area" name="area" col="50" rows="4" style="width:220px; height:50px;" ></textarea></td>
+            <td><div id="target"><p id ="msg" style="border: thin solid black; padding: 2px; margin:4px; width:220px; height:50px;">Drop Here</div></td>
+            <td><input type="checkbox" id="captcha" name="captcha"><font size ="2" required>Select Image Captcha if not a Robot</font></td>
+        </tr>
+         </table>
+    
+    	<input type="submit" class="button" id="register" value="Register">&nbsp;&nbsp;
+        <input type="submit" class="button" onclick="window.close(this.form);" value="close">
+    
+    	</center>
+    	
+    </form>
+</div>
+
+<script>
+var src = document.getElementById("src");
+var target = document.getElementById("target");
+var msg = document.getElementById("msg");
+var draggedID;
+target.ondragenter = handleDrag;
+target.ondragover = handleDrag;
+
+target.ondrop = function(e) {
+var newElem = document.getElementById(draggedID).cloneNode(true);
+target.innerHTML = "";
+target.appendChild(newElem);
+e.preventDefault();
+}
+function handleDrag(e) {
+e.preventDefault();
+}
+src.ondragstart = function(e) {
+draggedID = e.target.id;
+e.target.classList.add("dragged");
+}
+src.ondragend = function(e) {
+var elems = document.querySelectorAll(".dragged");
+for (var i = 0; i < elems.length; i++) {
+elems[i].classList.remove("dragged");
+}
+}
+</script>
+
+
+    <footer><font color=#800000;>Registration page Assignment by Archana Taparia</font></footer>
+
+</section>
+  
+</body>
+</html>

@@ -1,0 +1,74 @@
+body{
+    font-family: 'Georgia', serif;
+	font-size: 18px;
+	color: rgb(56,56,56);
+	line-height: 30px;
+	line-height: 1.5;
+	background:rgb(255,255,255);
+	}
+.heading {
+text-align: center;
+background:#4be7e7;
+font-size: 25px;
+}
+
+.button{
+    font-size: 15px;
+    background:rgb(255,255,255);
+    padding: 6px 12px;
+    border-radius: 50px;
+    border: 1px solid rgb(48, 48, 48);
+    text-align: center;
+    cursor: pointer;
+}
+.scope{
+    top: 45%;
+    left: 45%;
+    right: 35%;
+    width:83%;
+    height:100%;
+    margin-top: -15em;     
+	margin-left: -25em;
+	margin-right: -25em;
+    background: rgb(255,255,255);
+    padding:0;
+	overflow:auto;
+	position:fixed;
+	
+}
+meter {
+  font-size: .6em;
+  text-indent: .5em;
+  width: 15em;
+  height: 1.8em;
+  /* Reset the default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+ 
+}
+meter::-webkit-meter-bar {
+    background: #EEE;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+    border-radius: 3px;
+}
+
+
+meter[value="1"]::-webkit-meter-optimum-value { background: #CC0000; }
+meter[value="2"]::-webkit-meter-optimum-value { background: yellow; }
+meter[value="3"]::-webkit-meter-optimum-value { background: orange; }
+meter[value="4"]::-webkit-meter-optimum-value { background: #86CC00; }
+
+meter[value="1"]::-moz-meter-bar { background: red; }
+meter[value="2"]::-moz-meter-bar { background: yellow; }
+meter[value="3"]::-moz-meter-bar { background: orange; }
+meter[value="4"]::-moz-meter-bar { background: green; }
+
+footer{
+text-align: right;
+position:absolute;
+font-size: 9px;
+font-style: oblique;
+font-weight: 600;
+bottom:0;
+}
